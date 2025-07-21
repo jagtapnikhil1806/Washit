@@ -17,14 +17,14 @@ const {
 
 
 // ================ sign Up ================
-export function signUp(role, username, email, password, confirmPassword,  navigate) {
+export function signUp( username, email, password, confirmPassword,  navigate) {
   return async (dispatch) => {
 
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
-        role,
+       
         username,
         
         email,
