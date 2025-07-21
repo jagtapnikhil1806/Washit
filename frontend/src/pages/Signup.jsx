@@ -1,6 +1,8 @@
 
 
 
+
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -20,14 +22,14 @@ function SignupForm() {
     email: "",
     password: "",
     confirmPassword: "",
-    
+    role: "user",
   });
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const { username, email, password, confirmPassword } = formData;
+  const { username, email, password, confirmPassword, role } = formData;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +50,7 @@ function SignupForm() {
       return;
     }
 
-    dispatch(signUp( username, email, password, confirmPassword, navigate));
+    dispatch(signUp(role, username, email, password, confirmPassword, navigate));
 
     // Send OTP to user for verification
     

@@ -15,7 +15,8 @@ connectDB();
 
 // Middleware:
 // Enable CORS for all routes (to allow requests from your frontend)
-app.use(cors());
+app.use(cors({ origin: 'https://washit-silk.vercel.app', credentials: true }));
+
 // Parse JSON bodies of incoming requests
 app.use(express.json());
 
