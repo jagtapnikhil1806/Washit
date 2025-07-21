@@ -14,11 +14,10 @@ const cookie = require('cookie');
 exports.signup = async (req, res) => {
     try {
         // extract data 
-        const { username, email, password,confirmPassword, 
-            role} = req.body;
+        const { username, email, password,confirmPassword} = req.body;
 
         // validation
-        if (!username || !email || !password || !confirmPassword || !role  ) {
+        if (!username || !email || !password || !confirmPassword   ) {
             return res.status(401).json({
                 success: false,
                 message: 'All fields are required..!'
@@ -70,7 +69,7 @@ exports.signup = async (req, res) => {
         // create entry in DB
         const userData = await User.create({
             username, email, password: hashedPassword, 
-            role: role,
+            
             
         });
 
